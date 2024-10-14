@@ -1,7 +1,7 @@
 public class SumOfDigitsOfStringAfterConvert {
 
     public static void main(String[] args) {
-       int res =  getLucky("zbax", 500);
+       int res =  getLucky("vbyytoijnbgtyrjlsc", 2);
        System.out.println(res);
     }
     public static int getLucky(String s, int k) {
@@ -21,7 +21,10 @@ public class SumOfDigitsOfStringAfterConvert {
         }
 
 
-        for (int i = 1; i <= k; i++) {
+        if(k == 1){
+            return sum;
+        }
+        for (int i = 2; i <= k; i++) {
             int add = 0;
             while (sum != 0) {
                 int rem = sum % 10;
@@ -29,9 +32,6 @@ public class SumOfDigitsOfStringAfterConvert {
                 sum = sum / 10;
             }
             sum = add;
-            if(add < 10){
-                break;
-            }
         }
         return sum;
     }
