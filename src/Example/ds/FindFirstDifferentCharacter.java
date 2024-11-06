@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class FindFirstDifferentCharacter {
     public static void main(String[] args) {
-        String s = "amitsamingh";
+        String s = "aabccddeeffg";
          char result = findFirstDifferent(s);
         System.out.println(result);
     }
