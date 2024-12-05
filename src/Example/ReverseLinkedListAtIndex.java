@@ -1,7 +1,15 @@
 package Example;
 
+class Node{
+    int data;
+    Node next;
 
-public class ReverseLinkedListAtIndex {
+    Node(int data){
+        this.data = data;
+
+    }
+}
+public  class ReverseLinkedListAtIndex {
 
     public static void main(String[] args) {
         Node head = new Node(2);
@@ -11,16 +19,34 @@ public class ReverseLinkedListAtIndex {
         head.next = temp;
         temp.next = temp1;
         temp1.next = temp2;
+        Solution s = new Solution();
+        Node last = s.reverseLinkedList(head);
+        displayList(last);
+    }
+    static void displayList(Node last){
+       Node curr = last;
+        while(curr != null){
+            System.out.print(curr.data+" ");
+            curr = curr.next;
+        }
     }
 }
 
-class Node{
-    int data;
-    Node next;
 
-    Node(int data){
-        this.data = data;
-
+class Solution {
+    public static Node reverseLinkedList(Node head) {
+        Node prev = null;
+        Node curr = head;
+        Node tempCurrent = curr;
+        // Node last = curr;
+        while (curr.next != null) {
+            Node storedNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = storedNode;
+        }
+        tempCurrent.next = curr;
+        //prev = curr;
+        return prev;
     }
-
 }
